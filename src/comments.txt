@@ -1,0 +1,111 @@
+Comments for self-test -------- Tue Nov 14, 2017 at 14:28:3 EST
+parsing simulator.txt ... done
+building simulator ...
+done
+testing simulator ...
+  Running simulator on bigDFA ...
+    python simulating-DFA.py bigDFA.txt bigDFA-strings.txt > test-outputs/simulator/bigDFA-out.txt 2> test-outputs/simulator/bigDFA-err.txt
+    terminated normally
+  bigDFA-out.txt exists -- comparing acc/rej outcomes with solution file
+  outcomes match (correct)
+  Running simulator on biggerDFA ...
+    python simulating-DFA.py biggerDFA.txt biggerDFA-strings.txt > test-outputs/simulator/biggerDFA-out.txt 2> test-outputs/simulator/biggerDFA-err.txt
+    terminated normally
+  biggerDFA-out.txt exists -- comparing acc/rej outcomes with solution file
+  outcomes match (correct)
+  Running simulator on handoutDFA ...
+    python simulating-DFA.py handoutDFA.txt handoutDFA-strings.txt > test-outputs/simulator/handoutDFA-out.txt 2> test-outputs/simulator/handoutDFA-err.txt
+    terminated normally
+  handoutDFA-out.txt exists -- comparing acc/rej outcomes with solution file
+  outcomes match (correct)
+  Running simulator on randomDFA1 ...
+    python simulating-DFA.py randomDFA1.txt randomDFA1-strings.txt > test-outputs/simulator/randomDFA1-out.txt 2> test-outputs/simulator/randomDFA1-err.txt
+    terminated normally
+  randomDFA1-out.txt exists -- comparing acc/rej outcomes with solution file
+  outcomes match (correct)
+  Running simulator on randomDFA2 ...
+    python simulating-DFA.py randomDFA2.txt randomDFA2-strings.txt > test-outputs/simulator/randomDFA2-out.txt 2> test-outputs/simulator/randomDFA2-err.txt
+    terminated normally
+  randomDFA2-out.txt exists -- comparing acc/rej outcomes with solution file
+  outcomes match (correct)
+  Running simulator on randomDFA3 ...
+    python simulating-DFA.py randomDFA3.txt randomDFA3-strings.txt > test-outputs/simulator/randomDFA3-out.txt 2> test-outputs/simulator/randomDFA3-err.txt
+    terminated normally
+  randomDFA3-out.txt exists -- comparing acc/rej outcomes with solution file
+  outcomes match (correct)
+  Running simulator on randomDFA4 ...
+    python simulating-DFA.py randomDFA4.txt randomDFA4-strings.txt > test-outputs/simulator/randomDFA4-out.txt 2> test-outputs/simulator/randomDFA4-err.txt
+    terminated normally
+  randomDFA4-out.txt exists -- comparing acc/rej outcomes with solution file
+  outcomes match (correct)
+  Running simulator on randomDFA5 ...
+    python simulating-DFA.py randomDFA5.txt randomDFA5-strings.txt > test-outputs/simulator/randomDFA5-out.txt 2> test-outputs/simulator/randomDFA5-err.txt
+    terminated normally
+  randomDFA5-out.txt exists -- comparing acc/rej outcomes with solution file
+  outcomes match (correct)
+done with simulator
+
+parsing searcher.txt ... done
+building searcher ...
+done
+testing searcher ...
+  Running searcher on str1 ...
+    python text-search.py str1.txt > test-outputs/searcher/DFA1.txt 2> test-outputs/searcher/DFA1-err.txt
+    terminated normally
+  test-outputs/searcher/DFA1.txt exists -- checking isomorphism with solution DFA
+  THE DFAs DIFFER (INCORRECT)
+  Running searcher on str2 ...
+    python text-search.py str2.txt > test-outputs/searcher/DFA2.txt 2> test-outputs/searcher/DFA2-err.txt
+    terminated normally
+  test-outputs/searcher/DFA2.txt exists -- checking isomorphism with solution DFA
+  THE DFAs DIFFER (INCORRECT)
+  Running searcher on str3 ...
+    python text-search.py str3.txt > test-outputs/searcher/DFA3.txt 2> test-outputs/searcher/DFA3-err.txt
+    terminated normally
+  test-outputs/searcher/DFA3.txt exists -- checking isomorphism with solution DFA
+  THE DFAs DIFFER (INCORRECT)
+  Running searcher on str4 ...
+    python text-search.py str4.txt > test-outputs/searcher/DFA4.txt 2> test-outputs/searcher/DFA4-err.txt
+    terminated normally
+  test-outputs/searcher/DFA4.txt exists -- checking isomorphism with solution DFA
+  THE DFAs DIFFER (INCORRECT)
+  Running searcher on str5 ...
+    python text-search.py str5.txt > test-outputs/searcher/DFA5.txt 2> test-outputs/searcher/DFA5-err.txt
+    terminated normally
+  test-outputs/searcher/DFA5.txt exists -- checking isomorphism with solution DFA
+  the DFAs are isomorphic (correct)
+  Running searcher on str6 ...
+    python text-search.py str6.txt > test-outputs/searcher/DFA6.txt 2> test-outputs/searcher/DFA6-err.txt
+    terminated normally
+  test-outputs/searcher/DFA6.txt exists -- checking isomorphism with solution DFA
+  the DFAs are isomorphic (correct)
+  Running searcher on str7 ...
+    python text-search.py str7.txt > test-outputs/searcher/DFA7.txt 2> test-outputs/searcher/DFA7-err.txt
+    terminated normally
+  test-outputs/searcher/DFA7.txt exists -- checking isomorphism with solution DFA
+  THE DFAs DIFFER (INCORRECT)
+  Running searcher on str8 ...
+    python text-search.py str8.txt > test-outputs/searcher/DFA8.txt 2> test-outputs/searcher/DFA8-err.txt
+    terminated normally
+  test-outputs/searcher/DFA8.txt exists -- checking isomorphism with solution DFA
+  THE DFAs DIFFER (INCORRECT)
+done with searcher
+
+######################################################
+Summary for self-test:
+
+simulator: execution always completed without errors
+  progress level 5 with 0 execution errors
+minimizer: not implemented -- minimizer.txt does not exist
+  progress level 0 with 0 execution errors
+searcher: execution always completed, but there were errors
+  progress level 4 with 6 execution errors
+boolop: not implemented -- boolop.txt does not exist
+  progress level 0 with 0 execution errors
+invhom: not implemented -- invhom.txt does not exist
+  progress level 0 with 0 execution errors
+properties: not implemented -- properties.txt does not exist
+  progress level 0 with 0 execution errors
+
+There were a total of 6 execution errors found.
+######################################################
