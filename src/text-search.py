@@ -54,9 +54,6 @@ def main(argv):
     number_of_states = len(text) + 1
     accepting_states.append(len(text))
     count = 0
-    # for x in alphabet:
-    #     alphabet_table.update({x:count})
-    #     count += 1
 
     for x in xrange(int(number_of_states)):
         if(x == (int(number_of_states)-1)):
@@ -64,30 +61,25 @@ def main(argv):
             DFA_table.update({x: list(repeat(state, 26))})
         else:
             DFA_table.update({x: list(repeat(0, 26))})
-
-    for i in range(0,len(text),1):
-        reference.update({text[:i]: i})
-
-    for key, value in sorted(DFA_table.items()[:-1]):
+    for key, value in DFA_table.items()[:-1]:
         c = text[key]
         reference.update({text[:key]: key})
         alphabet_value = alphabet.index(c)
         value[alphabet_value] = key+1
-        for i in range(1,key,1):
+        for i in xrange(1,key,1):
             if(text[i:key] in reference):
                 for char in alphabet:
-                    past_phase = text[i:key]+char
-                    if(past_phase in reference):
-                        state = reference.get(past_phase)
-                        char_value = alphabet.index(char)
-                        if(value[char_value] == 0):
-                            value[char_value] = state
-        for char in alphabet:
-            if(char in reference):
-                state = reference.get(char)
-                char_value = alphabet.index(char)
-                if(value[char_value] == 0):
-                    value[char_value] = state
+                    if(value[alphabet.index(char)] == 0):
+                        past_phase = text[i:key]+char
+                        if(past_phase in reference):
+                            state = reference.get(past_phase)
+                            char_value = alphabet.index(char)
+                            if(value[char_value] == 0):
+                                value[char_value] = state
+
+        char_value = alphabet.index(text[0])
+        if(value[char_value] == 0):
+            value[char_value] = 1
 
     DFA_print()
 

@@ -1,2 +1,6 @@
 comments.txt exists -- making backup comments.bak
 Use of uninitialized value $rc in right bitshift (>>) at ./bin/project-test.pl line 172, <BR> line 4.
+
+Done.
+Comments are in src/comments.txt
+

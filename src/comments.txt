@@ -1,4 +1,4 @@
-Comments for self-test -------- Tue Nov 14, 2017 at 19:4:10 EST
+Comments for self-test -------- Tue Nov 14, 2017 at 19:43:21 EST
 parsing simulator.txt ... done
 building simulator ...
 done
@@ -86,14 +86,24 @@ testing searcher ...
   the DFAs are isomorphic (correct)
   Running searcher on str8 ...
     python text-search.py str8.txt > test-outputs/searcher/DFA8.txt 2> test-outputs/searcher/DFA8-err.txt
-    terminated abnormally
-  standard error output:
-vvvvv
-Traceback (most recent call last):
-  File "text-search.py", line 100, in <module>
-    main(sys.argv[1])
-  File "text-search.py", line 77, in main
-    if(text[i:key] in reference):
-KeyboardInterrupt
-^^^^^
-  test-outputs/searcher/DFA8.txt exists -- checking isomorphism with solution DFA
+    TIMED OUT
+done with searcher
+
+######################################################
+Summary for self-test:
+
+simulator: execution always completed without errors
+  progress level 5 with 0 execution errors
+minimizer: not implemented -- minimizer.txt does not exist
+  progress level 0 with 0 execution errors
+searcher: built OK, but execution timed out at least once
+  progress level 3 with 1 execution errors
+boolop: not implemented -- boolop.txt does not exist
+  progress level 0 with 0 execution errors
+invhom: not implemented -- invhom.txt does not exist
+  progress level 0 with 0 execution errors
+properties: not implemented -- properties.txt does not exist
+  progress level 0 with 0 execution errors
+
+There were a total of 1 execution errors found.
+######################################################
