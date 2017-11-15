@@ -28,15 +28,6 @@ accepting_states = []
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
 alphabet_table = {}
 DFA_table = {}
-'''
-Number of states: 4
-Accepting states: 3
-Alphabet: 01
-1 0
-0 2
-3 1
-3 0
-'''
 
 ###################
 #     FUNCTIONS   #
@@ -53,7 +44,7 @@ def main(argv):
     global number_of_states
     global accepting_states
     global alphabet
-    global alphabet_table
+    #global alphabet_table
     global DFA_table
     reference = {}
     STR_file = open(argv,"r")
@@ -63,11 +54,9 @@ def main(argv):
     number_of_states = len(text) + 1
     accepting_states.append(len(text))
     count = 0
-    for x in alphabet:
-        alphabet_table.update({x:count})
-        count += 1
-    list_trans = [0 for i in alphabet_table]
-    list_trans_last = [7 for i in alphabet_table]
+    # for x in alphabet:
+    #     alphabet_table.update({x:count})
+    #     count += 1
 
     for x in xrange(int(number_of_states)):
         if(x == (int(number_of_states)-1)):
@@ -82,20 +71,21 @@ def main(argv):
     for key, value in sorted(DFA_table.items()[:-1]):
         c = text[key]
         reference.update({text[:key]: key})
-        alphabet_value = alphabet_table.get(c)
+        alphabet_value = alphabet.index(c)
         value[alphabet_value] = key+1
         for i in range(1,key,1):
-            for char in text:
-                past_phase = text[i:key]+char
-                if(past_phase in reference):
-                    state = reference.get(past_phase)
-                    char_value = alphabet_table.get(char)
-                    if(value[char_value] == 0):
-                        value[char_value] = state
-        for char in text:
+            if(text[i:key] in reference):
+                for char in alphabet:
+                    past_phase = text[i:key]+char
+                    if(past_phase in reference):
+                        state = reference.get(past_phase)
+                        char_value = alphabet.index(char)
+                        if(value[char_value] == 0):
+                            value[char_value] = state
+        for char in alphabet:
             if(char in reference):
                 state = reference.get(char)
-                char_value = alphabet_table.get(char)
+                char_value = alphabet.index(char)
                 if(value[char_value] == 0):
                     value[char_value] = state
 

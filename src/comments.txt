@@ -1,4 +1,4 @@
-Comments for self-test -------- Tue Nov 14, 2017 at 14:28:3 EST
+Comments for self-test -------- Tue Nov 14, 2017 at 19:4:10 EST
 parsing simulator.txt ... done
 building simulator ...
 done
@@ -53,22 +53,22 @@ testing searcher ...
     python text-search.py str1.txt > test-outputs/searcher/DFA1.txt 2> test-outputs/searcher/DFA1-err.txt
     terminated normally
   test-outputs/searcher/DFA1.txt exists -- checking isomorphism with solution DFA
-  THE DFAs DIFFER (INCORRECT)
+  the DFAs are isomorphic (correct)
   Running searcher on str2 ...
     python text-search.py str2.txt > test-outputs/searcher/DFA2.txt 2> test-outputs/searcher/DFA2-err.txt
     terminated normally
   test-outputs/searcher/DFA2.txt exists -- checking isomorphism with solution DFA
-  THE DFAs DIFFER (INCORRECT)
+  the DFAs are isomorphic (correct)
   Running searcher on str3 ...
     python text-search.py str3.txt > test-outputs/searcher/DFA3.txt 2> test-outputs/searcher/DFA3-err.txt
     terminated normally
   test-outputs/searcher/DFA3.txt exists -- checking isomorphism with solution DFA
-  THE DFAs DIFFER (INCORRECT)
+  the DFAs are isomorphic (correct)
   Running searcher on str4 ...
     python text-search.py str4.txt > test-outputs/searcher/DFA4.txt 2> test-outputs/searcher/DFA4-err.txt
     terminated normally
   test-outputs/searcher/DFA4.txt exists -- checking isomorphism with solution DFA
-  THE DFAs DIFFER (INCORRECT)
+  the DFAs are isomorphic (correct)
   Running searcher on str5 ...
     python text-search.py str5.txt > test-outputs/searcher/DFA5.txt 2> test-outputs/searcher/DFA5-err.txt
     terminated normally
@@ -83,29 +83,17 @@ testing searcher ...
     python text-search.py str7.txt > test-outputs/searcher/DFA7.txt 2> test-outputs/searcher/DFA7-err.txt
     terminated normally
   test-outputs/searcher/DFA7.txt exists -- checking isomorphism with solution DFA
-  THE DFAs DIFFER (INCORRECT)
+  the DFAs are isomorphic (correct)
   Running searcher on str8 ...
     python text-search.py str8.txt > test-outputs/searcher/DFA8.txt 2> test-outputs/searcher/DFA8-err.txt
-    terminated normally
+    terminated abnormally
+  standard error output:
+vvvvv
+Traceback (most recent call last):
+  File "text-search.py", line 100, in <module>
+    main(sys.argv[1])
+  File "text-search.py", line 77, in main
+    if(text[i:key] in reference):
+KeyboardInterrupt
+^^^^^
   test-outputs/searcher/DFA8.txt exists -- checking isomorphism with solution DFA
-  THE DFAs DIFFER (INCORRECT)
-done with searcher
-
-######################################################
-Summary for self-test:
-
-simulator: execution always completed without errors
-  progress level 5 with 0 execution errors
-minimizer: not implemented -- minimizer.txt does not exist
-  progress level 0 with 0 execution errors
-searcher: execution always completed, but there were errors
-  progress level 4 with 6 execution errors
-boolop: not implemented -- boolop.txt does not exist
-  progress level 0 with 0 execution errors
-invhom: not implemented -- invhom.txt does not exist
-  progress level 0 with 0 execution errors
-properties: not implemented -- properties.txt does not exist
-  progress level 0 with 0 execution errors
-
-There were a total of 6 execution errors found.
-######################################################
