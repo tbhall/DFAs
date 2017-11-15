@@ -1,4 +1,4 @@
-Comments for self-test -------- Tue Nov 14, 2017 at 19:43:21 EST
+Comments for self-test -------- Tue Nov 14, 2017 at 19:51:54 EST
 parsing simulator.txt ... done
 building simulator ...
 done

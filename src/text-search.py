@@ -56,30 +56,30 @@ def main(argv):
     count = 0
 
     for x in xrange(int(number_of_states)):
+        trans_value = list(repeat(0, 26))
         if(x == (int(number_of_states)-1)):
             state = number_of_states - 1
             DFA_table.update({x: list(repeat(state, 26))})
         else:
-            DFA_table.update({x: list(repeat(0, 26))})
-    for key, value in DFA_table.items()[:-1]:
-        c = text[key]
-        reference.update({text[:key]: key})
-        alphabet_value = alphabet.index(c)
-        value[alphabet_value] = key+1
-        for i in xrange(1,key,1):
-            if(text[i:key] in reference):
-                for char in alphabet:
-                    if(value[alphabet.index(char)] == 0):
-                        past_phase = text[i:key]+char
-                        if(past_phase in reference):
-                            state = reference.get(past_phase)
-                            char_value = alphabet.index(char)
-                            if(value[char_value] == 0):
-                                value[char_value] = state
+            c = text[x]
+            reference.update({text[:x]: x})
+            alphabet_value = alphabet.index(c)
+            trans_value[alphabet_value] = x+1
+            DFA_table.update({x: trans_value})
+            for i in xrange(1,x,1):
+                if(text[i:x] in reference):
+                    for char in alphabet:
+                        if(trans_value[alphabet.index(char)] == 0):
+                            past_phase = text[i:x]+char
+                            if(past_phase in reference):
+                                state = reference.get(past_phase)
+                                char_value = alphabet.index(char)
+                                if(trans_value[char_value] == 0):
+                                    trans_value[char_value] = state
 
-        char_value = alphabet.index(text[0])
-        if(value[char_value] == 0):
-            value[char_value] = 1
+            char_value = alphabet.index(text[0])
+            if(trans_value[char_value] == 0):
+                trans_value[char_value] = 1
 
     DFA_print()
 
